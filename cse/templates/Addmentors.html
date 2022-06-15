@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name="viewport" content="width=devices-width,initial-scale=1,maximm-scale=1,user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="HandheldFriendly" content="true">
+	<style type="text/css">
+	body{
+		margin:0;
+		background-color: #16C79A;
+	}
+	@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css');
+
+	.info-msg,
+	.success-msg,
+	.warning-msg,
+	.error-msg {
+	margin: 10px 0;
+	padding: 10px;
+	border-radius: 3px 3px 3px 3px;
+	}
+	.info-msg {
+	color: #059;
+	background-color: #BEF;
+	}
+		nav{
+			background: #DAD992;
+		width: 100%;
+		margin-top: 0;
+		height:8rem;
+		}
+		nav ul{
+			display: block;
+			margin:0;
+			padding: 0;
+
+							margin-left:23%;
+		}
+		nav input{
+			text-decoration: none;
+			color: #fff;
+			background-color:white;
+			padding:10px;
+			border: 2px solid #000000;
+			border-radius: 30px 30px;
+			margin: 20px;
+			cursor: pointer;
+			color:black;
+			font-size:20px;
+		}
+		nav ul li{
+			display: inline-block;
+			line-height: 60px;
+			padding-left: 100px;
+             padding-top:2rem;
+							font-size:30px;
+		}
+		nav ul li a{
+		text-decoration: none;
+			 color:black;
+	}
+		nav ul li a:hover{
+		color:peru;
+	}
+		.in:hover{
+			background-color: #fff;
+			border: 2px solid #000000;
+			border-radius: 30px 30px;
+			color: grey;
+			cursor: pointer;
+		}
+		.box
+		{
+			width:30%;
+			height:60%;
+			border-color: black;
+			margin-top: 15%;
+			border: 15px;
+			margin-left: 30%;
+			background-color: white;
+			border-radius:45px;
+			box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+			padding: 3rem;
+		}
+		.box input{
+			display:inline-block;
+			border-radius:10px;
+			height:2rem;
+			width:60%;
+				border:1px solid grey;
+		}
+		.box select{
+			display:inline-block;
+			border-radius:10px;
+			height:2rem;
+			width:60%;
+				border:1px solid grey;
+		}
+		.box button{
+			width: 150px;
+			height: 40px;
+			margin-right: 2rem;
+			font-size: 17px;
+			text-align: center;
+			border-radius: 15px;
+			background-color: #54E346;
+			border:1px solid grey;
+			margin-left: 35%;
+		}
+	</style>
+</head>
+<body>
+	<nav>
+		<ul>
+			<li><a href="{% url 'projectdetails' %}">Project Details</a></li>
+			<li><a href="{% url 'reviewdates' %}">Review Dates</a></li>
+			<li><a href="{% url 'addmentors' %}">Add Mentor</a></li>
+			<li><a href="{% url 'mentorreport' %}">Mentor Report</a></li>
+		</ul>
+	</nav>
+	<form action="#" enctype="multipart/form-data" method="post">
+		{% csrf_token %}
+		{% for m in messages %}
+		<h1>{{ m }}</h1>
+		{% endfor %}
+	<div class='box'>
+		<label style='margin-right:2.5rem;'for="">Mentor Name:</label>
+		<input type="text" name="name"><br><br>
+		<label  style='margin-right:1rem;'for="">Mentor Email ID:</label>
+		<input type="text" name="emailid"><br><br>
+		<label  style='margin-right:1rem;'for="">Password:</label>
+		<input type="password" name="password" style="margin-left: 3rem;"><br><br>
+		<!--<label for="">Mentor Department:</label>
+		<select class="review-dates" name="size">
+		 <option value="1">CSE</option>
+			<option value="2">ECE</option>
+			<option value="3">EEE</option>
+			 <option value="4">MECH</option>
+				<option value="5">CIVIL</option>
+				<option value="6">CST</option>
+			</select><br><br>-->
+			<button type="submit">Save</button>
+	</div>
+	</form>
+</body>

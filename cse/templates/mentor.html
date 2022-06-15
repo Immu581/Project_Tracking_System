@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <style type="text/css">
+    body{
+      font-size:20px;
+      background-color:#71EFA3;
+    }
+    table{
+      width:10rem;
+      margin-left:6%;
+      margin-top:3rem;
+    }
+    input{
+      height:1.5rem;
+      width:5rem;
+    }
+    .roll input{
+      width:7rem;
+    }
+    .date{
+      height:1rem;
+    }
+    td{
+      padding-left:0.5rem;
+      padding-bottom:1rem;
+      text-align:center;
+    }
+    .heading{
+      margin-left:6%;
+    }
+    .project-name{
+      width:25rem;
+      margin-top:2rem;
+    }
+    .project{
+			border-radius:45px;
+			box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      width:50%;
+      margin-top:10%;
+      margin-left:28%;
+      background-color:white;
+      padding-bottom:2rem;
+    }
+    button{
+  background-color:#81B214;
+  color:#fff;
+  margin-left: 29rem;
+  height:3rem;
+  width:6rem;
+  align:center;
+border-radius: 6px;
+  border: none;
+    font-size:20px;
+  margin-bottom: 2rem;
+
+}
+button a{
+  text-decoration:none;
+  color:white;
+  padding-bottom:2rem;
+}
+  </style>
+  <body>
+    <form enctype="multipart/form-data" method="post" action="#">
+      {% csrf_token %}
+    <div class="project">
+    <label class='heading' for="">Project Name:</label>
+    <input class='project-name' type="text" name="" value="{{titles}}">
+    <table>
+      <tr>
+        <td>Roll Number</td>
+        <td>Name</td>
+        <td>Review 1 <input class='date' type="text" name="" value="{{d1}}" readonly></td>
+        <td>Review 2 <input class='date' type="text" name="" value="{{d2}}" readonly></td>
+        <td>Review 3 <input class='date' type="text" name="" value="{{d3}}" readonly></td>
+        <td>Average</td>
+      </tr>
+      {% for a,b,c,d,e,f in myzip %}
+      <tr>
+        <td class='roll'><input  type="text" name="rollno1" value="{{a}}"></td>
+        <td class='roll'><input type="text" name="" value="{{b}}"</td>
+        <td><input type="text" name="r11" value="{{c}}"></td>
+        <td><input type="text" name="r12" value="{{d}}"></td>
+        <td><input type="text" name="r13" value="{{e}}"></td>
+        <td><input type="text" name="avg1" value="{{f}}"></td>
+      </tr>
+      {% endfor %}
+    </table>
+    <button type="submit"> <a>Save</a></button>
+    <button><a href="/">Logout</a></button>
+  </div>
+  </form>
+  </body>
+</html>

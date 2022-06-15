@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name="viewport" content="width=devices-width,initial-scale=1,maximm-scale=1,user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="HandheldFriendly" content="true">
+	<style type="text/css">
+	body{
+		margin:0;
+    background: #16C79A;
+	}
+	nav{
+		background: #DAD992;
+		width: 100%;
+		margin-top: 0;
+		height:8rem;
+
+	}
+	nav ul{
+		padding: 0;
+		margin: 0;
+        padding-top:0.5rem;
+			margin-left:22%;
+	}
+	nav ul li{
+		display: inline-block;
+			line-height: 60px;
+			padding-left: 100px;
+             padding-top:1rem;
+							font-size:30px;
+	}
+	nav ul li a{
+		text-decoration: none;
+			 color:black;
+	}
+	nav ul li a:hover{
+		color:peru;
+	}
+	nav input{
+		text-decoration: none;
+		color: #fff;
+		background-color:white;
+		padding:10px;
+		border: 2px solid #000000;
+		border-radius: 30px 30px;
+		margin: 20px;
+		cursor: pointer;
+		color:black;
+		font-size:20px;
+	}
+	nav input:hover{
+		background-color: #fff;
+		border: 2px solid #000000;
+		border-radius: 30px 30px;
+		color: grey;
+		cursor: pointer;
+	}
+		.box
+		{
+			width:20%;
+			height:100%;
+			border-color: black;
+			border: 15px;
+			padding-top:3vh;
+			padding-bottom:3vh;
+			margin-left: auto;
+			margin-right:auto;
+			background-color: white;
+			margin-top:10%;
+           font-size: 20px;
+           border-radius: 25px;
+           box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+		}
+		.box a{
+			margin-left: 10%;
+			margin-right:10%;
+		}
+   .box h1{
+		 color: #fff;
+		 color:black;
+		 padding:10px;
+		 border-radius: 30px 30px;
+		 margin-left: 10%;
+		 margin-right: 30%;
+		 cursor: pointer;
+	 }
+	 .box a{
+		 text-decoration: none;
+	 }
+	</style>
+</head>
+<body >
+	<nav>
+		<ul>
+			<li style='margin-left:2%'><a href="{% url 'projectdetails' %}">Project Details</a></li>
+			<li><a href="{% url 'reviewdates' %}">Review Dates</a></li>
+			<li><a href="{% url 'addmentors' %}">Add Mentor</a></li>
+			<li><a href="{% url 'mentorreport' %}">Mentor Report</a></li>
+		</ul>
+	</nav>
+	<div class="box">
+		{% if t %}
+		<h1>No Projects Available</h1>
+		{% endif %}
+		{% for i,j in myzip %}
+			
+			 <a href="{% url 'project' %}?params={{ i }}">{{j}}</a><hr>
+			<br>
+		{% endfor %}
+  	</div>
+</body>
